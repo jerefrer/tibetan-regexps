@@ -1,4 +1,4 @@
-var TibetanRegExps = require('../dist/tibetan-regexps.umd.js');
+import TibetanRegExps from './tibetan-regexps.js';
 
 describe('TibetanRegExps.onlyTibetanWithSpaces', function() {
 

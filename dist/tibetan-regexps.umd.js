@@ -1,7 +1,7 @@
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
   typeof define === 'function' && define.amd ? define(factory) :
-  (global = global || self, global.Tibetanregexps = factory());
+  (global = global || self, global.TibetanRegExps = factory());
 }(this, (function () { 'use strict';
 
   const allTibetanCharacters = "†◌卍卐\u{f00}-\u{fda}\u{f021}-\u{f042}\u{f162}-\u{f588}";

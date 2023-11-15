@@ -1,30 +1,57 @@
 {
-  "name": "@jbro/tibetan-regexps",
+  "name": "tibetan-regexps",
   "version": "1.0.0",
-  "description": "",
-  "main": "dist/tibetan-regexps.umd.js",
-  "module": "dist/tibetan-regexps.esm.js",
-  "dependencies": {
-    "sugar": "^1.0.0",
-    "underscore": "^1.8.3"
-  },
-  "devDependencies": {
-    "acorn": "^7.4.1",
-    "rollup": "^1.32.1",
-    "jest": "^26.6.0",
-    "jest-cli": "^26.6.0",
-    "jest-css-modules": "^2.1.0",
-    "jest-environment-jsdom-fourteen": "^1.0.1",
-    "jest-serializer-html": "^7.0.0"
+  "description": "Useful RegExps to work with Unicode Tibetan text",
+  "keywords": [
+    "regexp",
+    "tibetan",
+    "unicode",
+    "languages",
+    "linguistics"
+  ],
+  "author": "Jérémy FRERE",
+  "license": "MIT",
+  "main": "lib/cjs/index.js",
+  "module": "lib/esm/index.js",
+  "files": [
+    "src",
+    "lib"
+  ],
+  "exports": {
+    "require": "./lib/cjs/index.js",
+    "import": "./lib/esm/index.js"
   },
   "scripts": {
-    "clean": "rm -rf ./dist && mkdir dist",
-    "build": "npm run clean && npm run build:esm && npm run build:umd",
-    "build:esm": "rollup src/tibetan-regexps.js --format esm --file dist/tibetan-regexps.esm.js",
-    "build:umd": "rollup src/tibetan-regexps.js --format umd --name Tibetanregexps --file dist/tibetan-regexps.umd.js",
+    "clean": "rimraf lib",
+    "build:esm": "cross-env BABEL_ENV=esmUnbundled babel src --out-dir 'lib/esm' --source-maps",
+    "build:cjs": "cross-env BABEL_ENV=cjs babel src --out-dir 'lib/cjs' --source-maps",
+    "build:bundles": "cross-env BABEL_ENV=esmBundled rollup -c",
+    "build": "npm-run-all -l clean -p build:esm build:cjs build:bundles",
     "test": "jest"
   },
-  "keywords": [],
-  "author": "",
-  "license": "MIT"
+  "homepage": "https://github.com/jerefrer/tibetan-regexps#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jerefrer/tibetan-regexps.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jerefrer/tibetan-regexps/issues"
+  },
+  "dependencies": {
+    "underscore": "^1.13.6"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.23.0",
+    "@babel/core": "^7.23.2",
+    "@babel/preset-env": "^7.23.2",
+    "@rollup/plugin-babel": "^6.0.4",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-terser": "^0.4.4",
+    "cross-env": "^7.0.3",
+    "jest": "^29.7.0",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^3.0.3",
+    "rimraf": "^5.0.5",
+    "rollup": "^4.3.0"
+  }
 }
