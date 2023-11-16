@@ -5,7 +5,7 @@ import resolve from '@rollup/plugin-node-resolve';
 const extensions = ['.js' ];
 
 export default  {
-  input: 'src/index.js',
+  input: 'src/tibetan-regexps.js',
   output: [
     {
       file: 'lib/bundles/bundle.esm.js',
