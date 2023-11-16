@@ -1,6 +1,6 @@
 {
   "name": "tibetan-regexps",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Useful RegExps to work with Unicode Tibetan text",
   "keywords": [
     "regexp",
