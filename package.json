@@ -1,6 +1,6 @@
 {
   "name": "tibetan-regexps",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Useful RegExps to work with Unicode Tibetan text",
   "keywords": [
     "regexp",
@@ -25,8 +25,7 @@
     "clean": "rimraf lib",
     "build:esm": "cross-env BABEL_ENV=esmUnbundled babel src --out-dir 'lib/esm' --source-maps",
     "build:cjs": "cross-env BABEL_ENV=cjs babel src --out-dir 'lib/cjs' --source-maps",
-    "build:bundles": "cross-env BABEL_ENV=esmBundled rollup -c",
-    "build": "npm-run-all -l clean -p build:esm build:cjs build:bundles",
+    "build": "npm-run-all -l clean -p build:esm build:cjs",
     "test": "jest"
   },
   "homepage": "https://github.com/jerefrer/tibetan-regexps#readme",
